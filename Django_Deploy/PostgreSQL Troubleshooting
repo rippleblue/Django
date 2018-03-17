@@ -1,0 +1,9 @@
+####PostgreSQL Command Line and issue
+##Drop Database Issue
+```
+REVOKE CONNECT ON DATABASE TARGET_DB FROM public;
+SELECT pg_terminate_backend(pg_stat_activity.pid)
+FROM pg_stat_activity
+WHERE pg_stat_activity.datname = 'TARGET_DB';
+drop database TARGET_DB;
+```
